@@ -35,7 +35,7 @@ app.MapGet("api/animals", (string? order, IConfiguration configuration) => {
             animals.Add(new Animal {
                 IdAnimal = rdr.GetInt32(0),
                 Name = rdr.GetString(1),
-                Description = rdr.GetString(2),
+                Description = rdr.IsDBNull(2) ? string.Empty : rdr.GetString(2),
                 Category = rdr.GetString(3),
                 Area = rdr.GetString(4)
             });
