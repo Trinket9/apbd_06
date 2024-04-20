@@ -14,8 +14,8 @@ public class AnimalController : ControllerBase
     }
 
     [HttpPut("{idAnimal}")]
-    public IActionResult UpdateAnimal(int animal, Animal updatedAnimal) {
-        _animalService.UpdateAnimal(animal, updatedAnimal);
+    public IActionResult UpdateAnimal(int idAnimal, Animal updatedAnimal) {
+        _animalService.UpdateAnimal(idAnimal, updatedAnimal);
         return NoContent();
     }
 }

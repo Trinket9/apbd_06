@@ -1,5 +1,7 @@
 using System.Data.SqlClient;
 using apbd_06.Models;
+using apbd_06.Repositories;
+using apbd_06.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
+builder.Services.AddScoped<IAnimalService, AnimalService>();
 builder.Services.AddControllers();
 
 var app = builder.Build();

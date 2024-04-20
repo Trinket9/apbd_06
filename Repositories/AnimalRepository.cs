@@ -12,7 +12,7 @@ public class AnimalRepository : IAnimalRepository
 
     public void UpdateAnimal(int idAnimal, Animal animal) {
         using (var sqlConnection = new SqlConnection(_configuration.GetConnectionString("Default"))) {
-            var query = @"UPDATE Animal 
+            var query = @"UPDATE apbd_06.Animal 
                           SET Name = @Name, Description = @Description, Category = @Category, Area = @Area
                           WHERE IdAnimal = @IdAnimal;";
             using var sqlCommand = new SqlCommand(query, sqlConnection);
